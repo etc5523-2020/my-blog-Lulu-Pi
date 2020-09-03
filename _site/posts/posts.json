@@ -2,7 +2,7 @@
   {
     "path": "posts/post1/",
     "title": "COVID-19 in Afghanistan",
-    "description": "Welcome to our new blog, My Blog. We hope you enjoy \nreading what we have to say!",
+    "description": "The COVID-19 pandemic in Afghanistan is part of the worldwide pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).",
     "author": [
       {
         "name": "Lulu Pi",
@@ -12,7 +12,7 @@
     "date": "2020-09-04",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-09-04T05:20:26+08:00",
-    "input_file": "post1.utf8.md"
+    "last_modified": "2020-09-04T05:25:03+08:00",
+    "input_file": {}
   }
 ]

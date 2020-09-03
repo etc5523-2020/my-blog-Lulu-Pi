@@ -1,7 +1,7 @@
 ---
 title: "About this blog"
 description: |
-  Some additional details about the blog
+  This is blog of Lulu Pi in the course of ETC5523. My email address is lpi2@student.monash.edu.
 ---
 
 ```{r setup, include=FALSE}

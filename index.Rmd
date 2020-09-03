@@ -1,5 +1,6 @@
 ---
-title: "My Blog"
+title: "ETC5523 Blog- Lulu Pi"
 site: distill::distill_website
 listing: posts
 ---
+

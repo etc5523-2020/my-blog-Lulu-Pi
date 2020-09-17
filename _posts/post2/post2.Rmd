@@ -1,0 +1,27 @@
+---
+title: "COVID-19 in Panama"
+description: |
+  
+author:
+  - name: Lulu Pi 
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: 18-09-2020
+bibliography: references.bib
+output:
+  distill::distill_article:
+    self_contained: false
+    citation_package: biblatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+library(rmarkdown)
+library(readr)
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+library(kableExtra)
+
+```

@@ -1,7 +1,7 @@
 name: "ETC5523 Blog"
 title: "My Blog"
 description: |
-  COVID-19 in Afghanistan
+  COVID-19 cases in various of countries
 output_dir: "_site"
 navbar:
   right:

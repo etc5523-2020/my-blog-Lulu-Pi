@@ -10,7 +10,7 @@ author:
 date: 09-04-2020
 bibliography: references.bib
 output:
-  bookdown::html_document2
+  distill::distill_article:
     self_contained: false
     citation_package: biblatex
 ---

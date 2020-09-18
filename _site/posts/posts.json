@@ -1,5 +1,21 @@
 [
   {
+    "path": "posts/post2/",
+    "title": "COVID-19 in Panama",
+    "description": "After the confirmation by the World Health Organization (WHO) with a novel coronavirus which caused a respiratory illness in a cluster of people in Wuhan City, Hubei Province, China, COVID-19 became to spread in various of countries, including Panama.",
+    "author": [
+      {
+        "name": "Lulu Pi",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2020-09-18",
+    "categories": [],
+    "preview": "posts/post2/post2_files/figure-html5/geom_bar_Panama-1.png",
+    "last_modified": "2020-09-18T16:08:53+08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/post1/",
     "title": "COVID-19 in Afghanistan",
     "description": "The COVID-19 pandemic in Afghanistan is part of the worldwide pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).",
@@ -12,7 +28,7 @@
     "date": "2020-09-04",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-09-18T03:46:13+08:00",
-    "input_file": "post1.utf8.md"
+    "last_modified": "2020-09-18T13:55:41+08:00",
+    "input_file": {}
   }
 ]

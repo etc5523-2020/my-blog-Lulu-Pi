@@ -1,14 +1,13 @@
 ---
 title: "COVID-19 in Panama"
-description: After the confirmation by the World Health Organization (WHO) with a novel coronavirus which caused a respiratory illness in a cluster of people in Wuhan City, Hubei Province, China, COVID-19 became to spread in various of countries, including Panama. 
-
-  
+description: |
+   After the confirmation by the World Health Organization (WHO) with a novel coronavirus which caused a respiratory illness in a cluster of people in Wuhan City, Hubei Province, China, COVID-19 became to spread in various of countries, including Panama. 
 author:
   - name: Lulu Pi 
     url: https://example.com/norajones
     affiliation: Spacely Sprockets
     affiliation_url: https://example.com/spacelysprokets
-date: 18-09-2020
+date: 9-18-2020
 bibliography: references.bib
 output:
   distill::distill_article:
@@ -28,8 +27,10 @@ library(ggrepel)
 library(hrbrthemes)
 library(plotly)
 library(gridExtra)
-
+library(dplyr)
 ```
+
+
 
 ```{r clean_data}
 confirmed <- read_csv("covid19_confirmed_global.csv") %>%
@@ -37,40 +38,48 @@ confirmed <- read_csv("covid19_confirmed_global.csv") %>%
   pivot_longer(cols = "1/22/20":"9/16/20",
                names_to = "Date",
                values_to = "Confirmed") %>%
-  select(Date, Confirmed) 
-  
+  select(Date, Confirmed) %>% 
+  mutate(Date = mdy(Date))
   
 deaths <- read_csv("covid19_deaths_global.csv") %>%
   filter(`Country/Region` == "Panama") %>%
   pivot_longer(cols = "1/22/20":"9/16/20",
                names_to = "Date",
                values_to = "Deaths") %>%
-  select("Date", "Deaths")
+  select("Date", "Deaths") %>% 
+  mutate(Date = mdy(Date))
 
 recovered <- read_csv("covid19_recovered_global.csv") %>%
   filter(`Country/Region` == "Panama") %>%
   pivot_longer(cols = "1/22/20":"9/16/20",
                names_to = "Date",
                values_to = "Recovered") %>%
-  select("Date", "Recovered")
+  select("Date", "Recovered") %>% 
+  mutate(Date = mdy(Date)) 
 
 Panama_covid19 <- confirmed %>%
   left_join(deaths,
             by = "Date") %>%
   left_join(recovered,
-            by = "Date") %>%
-  mutate(Month = substr(confirmed$Date, start = 1, stop = 1)) 
+            by = "Date") %>% 
+  mutate(Month = month(Date))
 
 Panama_month <- Panama_covid19 %>%
   group_by(Month) %>%
   summarise(Confirmed = sum(Confirmed),
             Deaths = sum(Deaths),
             Recovered = sum(Recovered))
-kable(Panama_month, caption = "COn 12 January 2020, the World Health Organization (WHO) confirmed that a novel coronavirus was the cause of a respiratory illness in a cluster of people in Wuhan City, Hubei Province, China,ases of COVID-19 in Panama per month") %>%
+
+kable(Panama_month, caption = "Table 1: Cases of COVID-19 in Panama per month") %>%
   kable_styling(bootstrap_options = c("striped", "hover"))
 
 ```
 
+
+# Understand the situation of COVID-19 in Panama
+After the confirmation by the World Health Organization (WHO) with a novel coronavirus which caused a respiratory illness in a cluster of people in Wuhan City, Hubei Province, China, COVID-19 became to spread in various of countries, including Panama. The virus was confirmed to have spread to Panama on 9 March 2020, and the country's first death from the coronavirus was published on the next day [@Reuters2020]. The first case of someone testing positive in Panama described as relatively minor, stressing that the government seeks to be transparent about the spread of coronavirus and should take the strategies immediately. Panama is the second Central American country to record cases of the Covid-19 virus following Costa Rica, where 13 people tested positive, including three Americans. Therefore, the Panamanian government quickly ordered public and private schools closed until April 7 in the affected areas. The infected individuals belong to the 29-59 age group and had each recently travelled abroad [@STwolrd2020].
+
+As shown in the Figure 1 and Table 1, Panama reported 103,466 cases of COVID-19, with 2,198 deaths, and 76,787 recoveries in total as of 16 September 2020. Through the trend presented in the Figure 2, the peak time of confirmation postive cases lied in July, as well as the deaths cases, and the peak time of recoveries contributed to August. 
 
 ```{r Panama_longer_Month}
 Panama_longer <- Panama_covid19 %>%
@@ -83,7 +92,7 @@ pivot_longer(cols = c("Confirmed",
 
 ```
 
-```{r geom_bar_Panama}
+```{r geom_bar_Panama, out.height= 500, out.width= 800}
 Panama_longer %>%
   group_by(Month,
            Type) %>%
@@ -95,8 +104,8 @@ Panama_longer %>%
   geom_bar(position="dodge", 
            stat="identity") +
   theme_bw() +
-  ggtitle("COVID-19 cases in Panama per month") +
-  theme(plot.title = element_text(size = 25,
+  ggtitle("Figure 1: COVID-19 cases in Panama per month") +
+  theme(plot.title = element_text(size = 20,
                                   color = "blue"),
         axis.title.x = element_text(size = 15),
         axis.title.y = element_text(size = 15),
@@ -105,7 +114,9 @@ Panama_longer %>%
 
 
 ```
-```{r}
+
+
+```{r cases_trend, out.height= 500, out.width= 800}
 g1 <- ggplot(Panama_covid19,
              aes(x = Date,
                  y = Confirmed,
@@ -116,7 +127,7 @@ g1 <- ggplot(Panama_covid19,
                                     color = "red"),
         axis.ticks = element_blank()) +
   xlab(" ") +
-  ggtitle("trend of COVID-19 cases in Panama as of 16 September 2020")
+  ggtitle("Figure 2: Trend of COVID-19 cases in Panama as of 16 September 2020")
 g2 <- ggplot(Panama_covid19,
              aes(x = Date,
                  y = Deaths,
@@ -141,10 +152,14 @@ g3 <- ggplot(Panama_covid19,
 grid.arrange(g1, g2, g3)
 ```
 
+The interactive Figure 4 gave the exact day with the most cases in each month. Although the situation was better than the peak time in July, and the trend presented a decreasing pattern, Panama still needs to maintain the lockdown strategy and pay attention on every single case due to the serious condition with economy, health system, facilities and so on in Panama. The Republic of Panama has the second most unequally distributed wealth in Central America and has one of the largest testing rates per inhabitant in the region and consequently the highest incidence rate of COVID-19 [@AlemanF2020]. 
+![Figure 3: Panama city.*](Panama city.jpeg)
+
+Moreover, Panama has been among the largest and fastest-growing economies in Latin America over the past 25 years, the average growth rate over the last five years has been 4.6%. However, COVID-19 has dramatically changed all previous projections and trends.
 
 
 
-```{r interact_point}
+```{r interact_point, out.height= 600, out.width= 800}
 p <- ggplot(Panama_longer,
             aes(x = Month, 
            y = Cases, 
@@ -154,7 +169,7 @@ p <- ggplot(Panama_longer,
   facet_wrap(~Type , dir="v")  +
   theme(legend.position="none",
         aspect.ratio = 1) +
-   ggtitle("COVID-19 cases in Panama each day as of 16 September 2020") +
+   ggtitle("Figure 4: COVID-19 cases in Panama each day as of 16 September 2020") +
   theme(plot.title = element_text(color = "blue"),
         axis.title.x = element_text(size = 15),
         axis.title.y = element_text(size = 15)) +
@@ -163,6 +178,70 @@ p <- ggplot(Panama_longer,
   
 ggplotly(p)
 ```
+
+
+# The control of COVID-19 in Panama
+
+
+```{r pandemic_rate}
+pandemic_rate <- data.frame(Month = c(1:9),
+                            Pandemic_rate = c("0%", "0%", "17.01%", "22.48%", "18.74%", "33.31%", "34.38%", "24.94%", "14.72%"))
+pandemic_rate %>%
+    tail(10) %>%
+  ggplot(aes(x = Month,
+           y = Pandemic_rate))  +
+  
+  geom_point(shape=21, color="black", fill="#69b3a2", size=6) +
+    theme_ipsum() +
+  ggtitle("Figure 5:Pandemic rate of COVID-19 per month in Panama") +
+  theme(axis.title.x = element_text(size = 15),
+        axis.title.y = element_text(size = 15))
+
+
+```
+Since April, Panama was taking a new measure to combat the spread of the novel coronavirus: separation of the sexes. Only women would be able to leave their homes to buy necessities on Monday, Wednesday and Friday, Men in Panama would be allowed to venture outside to run errands on Tuesday, Thursday and Saturday [@Oppmann2020]. Those strategies taken by the government would be beneficial to Panama, and the positivity rate from COVID-19 has fallen below 15% for the first time in six-months reports the Ministry of Health. As the data shown in the Figure 4, Panama registered 9,850 confirmed cases, after a total of 66,919 tests applied, which gave a percentage of confirmed cases of 14.72%. Specialists say that Panama is entering the phase of overcoming the peak of the pandemic, and the figures for this month reveal that the virus is being controlled. In Figure 5, the first month of the pandemic in March, ended with 17% positivity, then in April it was 22.48%, May registered 18.74%, June 33.31%, July 34.38% and August 24.94% [@MENAFN-NewsroomPanama]. That is absolutely a good sign, and hope everything will be fine as soon as possible, and everyone around the world can back to their normal life.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,26 @@
+---
+title: "My Shiny App"
+description: |
+  Hi everyone, this is a reflection of the shiny app, which would help you with basic analysis of COVID-19 daily cases in China as of 30 September 2020.  
+author:
+  - name: Lulu Pi 
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: 10-14-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+
+
+

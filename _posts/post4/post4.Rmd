@@ -1,0 +1,19 @@
+---
+title: "Peer Review of Prikage"
+description: |
+  This is my first time of a peer review for the r package called "prikage", which was created by Priya Ravindra Dingorkar. 
+  I believe I would learn something new from it when I exploring. 
+author:
+  - name: Lulu Pi 
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: 10-28-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```

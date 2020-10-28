@@ -17,3 +17,31 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+## Package overview
+The package of **prikage** created by **Priya Ravindra Dingorkar** gives users an overview of COVID-19, by the exciting graphs embedded in a shiny application and added user interactivity. The Shiny App, is the *heart* of this package. It has a lot of exciting features available for the user in this package, each Tab of the the embedded shiny app is discussed in the vignettes with details, including the sicuation of COVID19 Scenario Across the Globe. 
+
+Also, there are several functions contained in the package that are called by the shiny app:
+
+<u>**functions of ui part**</u>:
+
+- *select_input_world_countries()*: allows the user to select any desired country from a list of countries
+- *select_input_austate()*: allows the user to select one of the states of Australia 
+- *date_slider_input()*: allows the user to select the desired data range
+
+<u>**functions of server part**</u>:
+
+- *gg_covid_line()*: creates line graphs of the covid confirmed, recovered and death cases for covid_data
+- *gg_covid_barplot()*: creates a bar chart that shows us the covid- 19 positive case for the user selected state of Australia
+
+<u>**function of launch the app**</u>:
+
+- *launch_app()*
+
+I easily get installed the "**prikage**" through the instructions on the README page from github using *devtools::install_github("etc5523-2020/r-package-assessment-priya51096")*, and I can play around the app with the *launch_app()* function while explore the other functions and knowledge in the package, the structure is complete. 
+ 
+
+
+
+
+

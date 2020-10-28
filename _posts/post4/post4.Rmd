@@ -16,10 +16,11 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
 ```
 
 ## Package overview
-The package of **prikage** created by **Priya Ravindra Dingorkar** gives users an overview of COVID-19, by the exciting graphs embedded in a shiny application and added user interactivity. The Shiny App, is the *heart* of this package. It has a lot of exciting features available for the user in this package, each Tab of the the embedded shiny app is discussed in the vignettes with details, including the sicuation of COVID19 Scenario Across the Globe. 
+The package of **prikage** created by **Priya Ravindra Dingorkar** gives users an overview of COVID-19, by the exciting graphs embedded in a shiny application and added user interactivity. The Shiny App, is the *heart* of this package. It has a lot of exciting features available for the user in this package, each Tab of the the embedded shiny app is discussed in the vignette with details, including the sicuation of COVID19 Scenario Across the Globe. 
 
 Also, there are several functions contained in the package that are called by the shiny app:
 
@@ -39,6 +40,71 @@ Also, there are several functions contained in the package that are called by th
 - *launch_app()*
 
 I easily get installed the "**prikage**" through the instructions on the README page from github using *devtools::install_github("etc5523-2020/r-package-assessment-priya51096")*, and I can play around the app with the *launch_app()* function while explore the other functions and knowledge in the package, the structure is complete. 
+
+## Explore the Questions
+
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+What did I think this package would do? Did it do it?
+</span> </p>
+
+The package should contain: 
+
+- *inst/app/* that includes the relevant R code to run shiny app
+- functions of *launch_app()* that will load the shiny app
+- functions of *interface-side logic* and *server-side logic* of the shiny app that are exported by the package
+- tests for the functions created in the package
+- the *DESCRIPTION file* includes the introduction of the package, the author field and deppendencies, as well as the *LICENCE file*
+- the *vignette* describes the introduction and the guidelines for the shiny app
+- the *README.md file* shows the introduction of installand the overview of the package
+- the *_pkgdown.yaml file* customises the pkgdown site
+
+
+Moreover, the package should: 
+
+- pass *R CMD CHECK* without errors or warnings
+- pass unit *tests* without errors
+- document all functions with *roxygen2* format
+
+When I review the package of "**prikage**", I can see all of the required elements was contained. 
+
+```{r, out.width = "350px"}
+include_graphics("required_elements.png")
+```
+
+The *R CMD CHECK* was also passed as we can see in the README.md file, and the other requirements were meet as well. 
+
+```{r, out.width = "250px"}
+include_graphics("R-CMD-CHECK.png")
+```
+
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+Are the improvements that could be made to the code? 
+</span> </p>
+
+For the code, I think most of them are really logical and comprehensive, if I have to put forward an improvement, that could be the label of *x-axis* in the **gg_covid_bar_plot**. The **month** was regarded as a continuious variable as shown below, and the label could be look better when using *mutate(month = as.character(month))*.
+
+```{r, out.width = "800px"}
+include_graphics("bar_plot.png")
+```
+
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+Are there improvements that could be made to the shiny app inside the package?
+</span> </p>
+
+In terms of the shiny app, the contents are plentiful and not boring definitely. There are three webpages to tell the story, and additional one **References** page and one **About** page, which helps the shiny app looks orderly and easily understood for users. However, I think the plotly click graph for the second webpage - "Australia's States" could be changed to other type of figure such as *bar plot* or *lollipop plot*, since it does not make much sense for this *geom_point()* regarding to its x-axis as shown below. The title of the figure can be changed to the specific month as clicking by users, and the *x-axis* could be changed to 4 type of cases: **Recovered, Hospitalized, Ventilator and ICU**, while *y-axis* shows the **number of cases**. 
+
+```{r, out.width = "700px"}
+include_graphics("clicked_month.png")
+```
+
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+ Is the documentation sufficient to get started?
+</span> </p>
+
+
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+ what I’ve learned from reviewing the package?
+</span> </p>
  
 
 

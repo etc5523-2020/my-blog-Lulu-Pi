@@ -50,7 +50,7 @@
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["post4_files/bowser-1.9.3/bowser.min.js","post4_files/distill-2.2.21/template.v2.js","post4_files/jquery-1.11.3/jquery.min.js","post4_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["bar_plot.png","clicked_month.png","post4_files/bowser-1.9.3/bowser.min.js","post4_files/distill-2.2.21/template.v2.js","post4_files/jquery-1.11.3/jquery.min.js","post4_files/webcomponents-2.0.0/webcomponents.js","R-CMD-CHECK.png","required_elements.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1354,7 +1354,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="d-article">
 <h2 id="package-overview">Package overview</h2>
-<p>The package of <strong>prikage</strong> created by <strong>Priya Ravindra Dingorkar</strong> gives users an overview of COVID-19, by the exciting graphs embedded in a shiny application and added user interactivity. The Shiny App, is the <em>heart</em> of this package. It has a lot of exciting features available for the user in this package, each Tab of the the embedded shiny app is discussed in the vignettes with details, including the sicuation of COVID19 Scenario Across the Globe.</p>
+<p>The package of <strong>prikage</strong> created by <strong>Priya Ravindra Dingorkar</strong> gives users an overview of COVID-19, by the exciting graphs embedded in a shiny application and added user interactivity. The Shiny App, is the <em>heart</em> of this package. It has a lot of exciting features available for the user in this package, each Tab of the the embedded shiny app is discussed in the vignette with details, including the sicuation of COVID19 Scenario Across the Globe.</p>
 <p>Also, there are several functions contained in the package that are called by the shiny app:</p>
 <p><u><strong>functions of ui part</strong></u>:</p>
 <ul>
@@ -1372,6 +1372,55 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><em>launch_app()</em></li>
 </ul>
 <p>I easily get installed the “<strong>prikage</strong>” through the instructions on the README page from github using <em>devtools::install_github(“etc5523-2020/r-package-assessment-priya51096”)</em>, and I can play around the app with the <em>launch_app()</em> function while explore the other functions and knowledge in the package, the structure is complete.</p>
+<h2 id="explore-the-questions">Explore the Questions</h2>
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+What did I think this package would do? Did it do it?
+</span> </p>
+<p>The package should contain:</p>
+<ul>
+<li><em>inst/app/</em> that includes the relevant R code to run shiny app</li>
+<li>functions of <em>launch_app()</em> that will load the shiny app</li>
+<li>functions of <em>interface-side logic</em> and <em>server-side logic</em> of the shiny app that are exported by the package</li>
+<li>tests for the functions created in the package</li>
+<li>the <em>DESCRIPTION file</em> includes the introduction of the package, the author field and deppendencies, as well as the <em>LICENCE file</em></li>
+<li>the <em>vignette</em> describes the introduction and the guidelines for the shiny app</li>
+<li>the <em>README.md file</em> shows the introduction of installand the overview of the package</li>
+<li>the *_pkgdown.yaml file* customises the pkgdown site</li>
+</ul>
+<p>Moreover, the package should:</p>
+<ul>
+<li>pass <em>R CMD CHECK</em> without errors or warnings</li>
+<li>pass unit <em>tests</em> without errors</li>
+<li>document all functions with <em>roxygen2</em> format</li>
+</ul>
+<p>When I review the package of “<strong>prikage</strong>”, I can see all of the required elements was contained.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="required_elements.png" width="350px" /></p>
+</div>
+<p>The <em>R CMD CHECK</em> was also passed as we can see in the README.md file, and the other requirements were meet as well.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="R-CMD-CHECK.png" width="250px" /></p>
+</div>
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+Are the improvements that could be made to the code? 
+</span> </p>
+<p>For the code, I think most of them are really logical and comprehensive, if I have to put forward an improvement, that could be the label of <em>x-axis</em> in the <strong>gg_covid_bar_plot</strong>. The <strong>month</strong> was regarded as a continuious variable as shown below, and the label could be look better when using <em>mutate(month = as.character(month))</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="bar_plot.png" width="800px" /></p>
+</div>
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+Are there improvements that could be made to the shiny app inside the package?
+</span> </p>
+<p>In terms of the shiny app, the contents are plentiful and not boring definitely. There are three webpages to tell the story, and additional one <strong>References</strong> page and one <strong>About</strong> page, which helps the shiny app looks orderly and easily understood for users. However, I think the plotly click graph for the second webpage - “Australia’s States” could be changed to other type of figure such as <em>bar plot</em> or <em>lollipop plot</em>, since it does not make much sense for this <em>geom_point()</em> regarding to its x-axis as shown below. The title of the figure can be changed to the specific month as clicking by users, and the <em>x-axis</em> could be changed to 4 type of cases: <strong>Recovered, Hospitalized, Ventilator and ICU</strong>, while <em>y-axis</em> shows the <strong>number of cases</strong>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="clicked_month.png" width="700px" /></p>
+</div>
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+ Is the documentation sufficient to get started?
+</span> </p>
+<p style="border:3px solid #59788E;" <span style="color:#59788E"> 
+ what I’ve learned from reviewing the package?
+</span> </p>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

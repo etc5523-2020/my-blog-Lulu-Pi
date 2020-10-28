@@ -44,7 +44,7 @@ I easily get installed the "**prikage**" through the instructions on the README 
 ## Explore the Questions
 
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
-What did I think this package would do? Did it do it?
+1. What did I think this package would do? Did it do it?
 </span> </p>
 
 The package should contain: 
@@ -78,7 +78,7 @@ include_graphics("R-CMD-CHECK.png")
 ```
 
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
-Are the improvements that could be made to the code? 
+2. Are the improvements that could be made to the code? 
 </span> </p>
 
 For the code, I think most of them are really logical and comprehensive, if I have to put forward an improvement, that could be the label of *x-axis* in the **gg_covid_bar_plot**. The **month** was regarded as a continuious variable as shown below, and the label could be look better when using *mutate(month = as.character(month))*.
@@ -88,7 +88,7 @@ include_graphics("bar_plot.png")
 ```
 
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
-Are there improvements that could be made to the shiny app inside the package?
+3. Are there improvements that could be made to the shiny app inside the package?
 </span> </p>
 
 In terms of the shiny app, the contents are plentiful and not boring definitely. There are three webpages to tell the story, and additional one **References** page and one **About** page, which helps the shiny app looks orderly and easily understood for users. However, I think the plotly click graph for the second webpage - "Australia's States" could be changed to other type of figure such as *bar plot* or *lollipop plot*, since it does not make much sense for this *geom_point()* regarding to its x-axis as shown below. The title of the figure can be changed to the specific month as clicking by users, and the *x-axis* could be changed to 4 type of cases: **Recovered, Hospitalized, Ventilator and ICU**, while *y-axis* shows the **number of cases**. 
@@ -98,13 +98,19 @@ include_graphics("clicked_month.png")
 ```
 
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
- Is the documentation sufficient to get started?
+4. Is the documentation sufficient to get started?
 </span> </p>
+
+As I mentioned before, the package contained most of the required elements and the structure was complete. However, something still need to be improved. All the functions that exported by the package for shiny app are lack of **examples**. The examples of *how to use the function* in the documentation could help users get familiar with your package as soon as possible. 
 
 
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
- what I’ve learned from reviewing the package?
+5. what I’ve learned from reviewing the package?
 </span> </p>
+
+After reviewing the package, I learned many ways to make my own shiny app more plentiful, including several different webpages and related navbar to make it orderly. I also learned the way of producing the click plot to make my package more logical. Moreover, the logo created by **Priya Ravindra Dingorkar** in this **prikage** package was really great, and I will remember always leave a feedback place for users same as this package. 
+
+
  
 
 

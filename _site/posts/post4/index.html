@@ -1374,7 +1374,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>I easily get installed the “<strong>prikage</strong>” through the instructions on the README page from github using <em>devtools::install_github(“etc5523-2020/r-package-assessment-priya51096”)</em>, and I can play around the app with the <em>launch_app()</em> function while explore the other functions and knowledge in the package, the structure is complete.</p>
 <h2 id="explore-the-questions">Explore the Questions</h2>
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
-What did I think this package would do? Did it do it?
+1. What did I think this package would do? Did it do it?
 </span> </p>
 <p>The package should contain:</p>
 <ul>
@@ -1402,25 +1402,27 @@ What did I think this package would do? Did it do it?
 <p><img src="R-CMD-CHECK.png" width="250px" /></p>
 </div>
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
-Are the improvements that could be made to the code? 
+2. Are the improvements that could be made to the code? 
 </span> </p>
 <p>For the code, I think most of them are really logical and comprehensive, if I have to put forward an improvement, that could be the label of <em>x-axis</em> in the <strong>gg_covid_bar_plot</strong>. The <strong>month</strong> was regarded as a continuious variable as shown below, and the label could be look better when using <em>mutate(month = as.character(month))</em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="bar_plot.png" width="800px" /></p>
 </div>
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
-Are there improvements that could be made to the shiny app inside the package?
+3. Are there improvements that could be made to the shiny app inside the package?
 </span> </p>
 <p>In terms of the shiny app, the contents are plentiful and not boring definitely. There are three webpages to tell the story, and additional one <strong>References</strong> page and one <strong>About</strong> page, which helps the shiny app looks orderly and easily understood for users. However, I think the plotly click graph for the second webpage - “Australia’s States” could be changed to other type of figure such as <em>bar plot</em> or <em>lollipop plot</em>, since it does not make much sense for this <em>geom_point()</em> regarding to its x-axis as shown below. The title of the figure can be changed to the specific month as clicking by users, and the <em>x-axis</em> could be changed to 4 type of cases: <strong>Recovered, Hospitalized, Ventilator and ICU</strong>, while <em>y-axis</em> shows the <strong>number of cases</strong>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="clicked_month.png" width="700px" /></p>
 </div>
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
- Is the documentation sufficient to get started?
+4. Is the documentation sufficient to get started?
 </span> </p>
+<p>As I mentioned before, the package contained most of the required elements and the structure was complete. However, something still need to be improved. All the functions that exported by the package for shiny app are lack of <strong>examples</strong>. The examples of <em>how to use the function</em> in the documentation could help users get familiar with your package as soon as possible.</p>
 <p style="border:3px solid #59788E;" <span style="color:#59788E"> 
- what I’ve learned from reviewing the package?
+5. what I’ve learned from reviewing the package?
 </span> </p>
+<p>After reviewing the package, I learned many ways to make my own shiny app more plentiful, including several different webpages and related navbar to make it orderly. I also learned the way of producing the click plot to make my package more logical. Moreover, the logo created by <strong>Priya Ravindra Dingorkar</strong> in this <strong>prikage</strong> package was really great, and I will remember always leave a feedback place for users same as this package.</p>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

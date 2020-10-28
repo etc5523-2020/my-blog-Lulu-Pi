@@ -110,10 +110,28 @@ As I mentioned before, the package contained most of the required elements and t
 
 After reviewing the package, I learned many ways to make my own shiny app more plentiful, including several different webpages and related navbar to make it orderly. I also learned the way of producing the click plot to make my package more logical. Moreover, the logo created by **Priya Ravindra Dingorkar** in this **prikage** package was really great, and I will remember always leave a feedback place for users same as this package. 
 
+## Appendix 
+### Documentation
+The package includes all the following forms of documentation:
 
- 
+- [x] **Installation instructions:** for the package is found in README
+- [x] **Vignette(s)** demonstrating major functionality that runs successfully locally
+- [x] **Function Documentation:** for all exported functions in R help
+- [ ] **Examples** for all exported functions in R Help that run successfully locally
 
+#### Comments
 
+- **Installation instructions:** the `README.md` file provides clear instructions on how to install the package from github
+- **Vignette(s):** the `Vignette` describes how to launch the app, what the app does, and guidelines for its use
+- **Function Documentation:** all exported functions are documented with `roxygen2`  
+- **Examples:** there are not sufficient examples to show how to run the functions  
+
+### Functionality
+
+- [x] **Installation:** Installation succeeds as documented.
+- [x] **Functionality:** Any functional claims of the software been confirmed.
+- [x] **Automated tests:** Unit tests cover essential functions of the package
+and a reasonable range of inputs and conditions. All tests pass on the local machine.
 
 
 
